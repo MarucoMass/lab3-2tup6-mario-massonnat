@@ -12,19 +12,21 @@ const Login = () => {
   };
 
   const handleUsername = (e) => {
-    // if (isInvalidLetter(e.target.value)) {
-    //   alert("Please, usernames with no o/O");
-    // }
-    setUsername(e.target.value);
+    const newWord = e.target.value;
+    setUsername(newWord);
+    
+    if (newWord.includes("o") || newWord.includes("O")) {
+      alert("Por favor, ¡Nombres de usuario sin la letra o!");
+    }
   };
 
   const handleForm = (e) => {
     e.preventDefault();
 
     if (!isInvalidLetter() && !isEmptyUsername()) {
-      alert("User registered successfully");
+      alert("¡Usuario registrado correctamente!");
     } else {
-      alert("Invalid username");
+      alert("Usuario inválido para registrarse");
     }
   };
 
