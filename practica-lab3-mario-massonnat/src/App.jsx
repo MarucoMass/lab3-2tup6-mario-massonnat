@@ -1,24 +1,27 @@
-
-import './App.css'
-import Table from './components/Table';
+import { useState } from "react";
+import "./App.css";
+import NewTask from "./components/newTask/NewTask";
+import TasksList from "./components/tasksList/TasksList";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
 
-const netIncomes = [
-  {brand: "McDonalds", income: 1291283}, 
-  {brand: "Burger King", income: 1927361}, 
-  {brand: "KFC", income: 1098463}
-];
+  const handleNewTask = (newTask) => {
+    setTasks((prevTasks) => [...prevTasks, { id: Date.now(), name: newTask }]);
+  };
 
-const total = netIncomes.reduce((acum, current) => acum + current.income, 0);
-const averageIncome = (total / netIncomes.length).toFixed(2);
+  const handleDeleteTask = (id) => {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+  };
 
   return (
     <>
-      <Table data={netIncomes}/>
-      <p>Average income: ${averageIncome}</p>
+      <h1>Tasks</h1>
+      <NewTask addNewTask={handleNewTask} />
+      <TasksList tasks={tasks} onDelete={handleDeleteTask} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

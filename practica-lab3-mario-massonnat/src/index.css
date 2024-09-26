@@ -25,8 +25,9 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: top;
   justify-content: center;
+  padding-top: 8rem;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -55,34 +56,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    text-align: left;
+.task-done {
+  text-decoration: line-through;
+  color: gray;
 }
-
-thead tr th {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-}
-
-th, td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-}
-
-tbody tr:hover {
-    background-color: #ddd;
-}
-
-tbody td {
-    text-align: center;
-}
-
 
 
 @media (prefers-color-scheme: light) {
